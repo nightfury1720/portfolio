@@ -16,8 +16,9 @@ const FiltersTab = ({ work }) => {
 
   useEffect(() => {
     const map = {};
-    map["All"] = work.projects;
-    work.projects.forEach((project) => {
+    map["All"] = work?.projects;
+    if(work.projects)
+    work?.projects.forEach((project) => {
       project.skills.forEach((skill) => {
         if (!map[skill]) {
           map[skill] = [];
@@ -26,7 +27,7 @@ const FiltersTab = ({ work }) => {
       });
     });
     setSkillProjectMap(() => map);
-  }, []);
+  }, [work]);
   // useEffect(() => {
   //   setSkillsArray(() => {
   //     Object.keys(skillProjectMap);

@@ -1,0 +1,66 @@
+{
+  "experience": [
+    {
+      "role": "Software Engineer",
+      "location": "Bangalore, India",
+      "companyName": "Sapiens",
+      "companyUrl": "https://sapiens.com",
+      "startYear": "June, 2023",
+      "endYear": "Present",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, eui",
+      "skills": ["Javascript", "Typescript", "NextJs", "MongoDb"],
+      "companyLogo": "https://sapiens.com/wp-content/uploads/2022/05/sapiens_main_logo_website.png"
+    },
+    {
+      "role": "Software Engineer Intern",
+      "location": "Bangalore, India",
+      "companyName": "Gojek",
+      "companyUrl": "https://www.gojek.io",
+      "startYear": "June, 2022",
+      "endYear": "August, 2022",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a,",
+      "skills": ["Elixir", "Docker", "Redis", "ElasticSearch"],
+      "companyLogo": "https://www.gojek.io/img/GojekLogo.svg"
+    }
+  ],
+  "description": "I'm proficient in Next, React, Node.js, and more. With a track record of delivering impactful projects, I bring boundless enthusiasm and a knack for problem-solving to every endeavor. Let's connect and create something extraordinary!",
+  "featuredWork": {
+    "name": "Chatty",
+    "imageLink": "/img/chatty.png",
+    "gitLink": "https://github.com/nightfury1720/chatty"
+  },
+  "projects": [
+    {
+      "name": "Chatty",
+      "imageLink": "/img/chatty.png",
+      "gitLink": "https://github.com/nightfury1720/chatty",
+      "shortdesc": "Chatting App",
+      "description": "Real-time messaging app featuring Socket.IO for creating channels, selecting avatars, and enabling messaging functionality.",
+      "skills": ["React", "WebSockets", "Javascript", "MongoDb", "NodeJs"]
+    },
+    {
+      "name": "Memory Lane",
+      "imageLink": "/img/memoryLane.png",
+      "gitLink": "https://github.com/nightfury1720/Memory_lane_Project",
+      "shortdesc": "Social Media Web App",
+      "description": " A full-stack social media app for sharing life events with user authorization, allowing likes, reactions and comments.",
+      "skills": ["React", "Javascript", "MongoDb", "NodeJs"]
+    },
+    {
+      "name": "URL Shortener",
+      "imageLink": "/img/urlShortener.png",
+      "gitLink": "https://github.com/nightfury1720/Url-Shortener",
+      "shortdesc": "Shortening URL",
+      "description": "Developed a URL shortener app with an integrated rate limiter for enhanced performance and user control.",
+      "skills": ["React", "Javascript", "MongoDb", "NodeJs"]
+    },
+    {
+      "name": "Going Nuts",
+      "imageLink": "/img/goingNuts.png",
+      "gitLink": "https://www.goingnuts.in",
+      "shortdesc": "WordPress Website",
+      "description": "NewsMonkey(Dailynewsapp) featuring categorized content, search, infinitescrolling, and hot reload functionality.",
+      "skills": ["WordPress"]
+    }
+  ]
+}
