@@ -34,14 +34,15 @@ export default function Home() {
     const shiftX = targetX - currX;
     const shiftY = targetY - currY;
     console.log(currX, currY, targetX, targetY, shiftX, shiftY);
-    gsap.to(curr, {
-      x: shiftX,
-      y: shiftY,
-      scale: 0.2,
-      rotation: 360,
-      duration: 1,
-      ease: "power1.inOut",
-    });
+    if (shiftX !== 0 || shiftY !== 0)
+      gsap.to(curr, {
+        x: shiftX,
+        y: shiftY,
+        scale: 0.2,
+        rotation: 360,
+        duration: 1,
+        ease: "power1.inOut",
+      });
   };
 
   useEffect(() => {
@@ -87,7 +88,7 @@ const BirdWrapper = styled.div`
   height: 100%;
   left: 0;
   top: 0;
-  z-index:-1;
+  z-index: -1;
 `;
 
 const Bird = styled.div`
