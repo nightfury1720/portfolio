@@ -394,6 +394,14 @@ const Bird = styled.div`
   z-index: 100;
   width: fit-content;
   height: fit-content;
+  
+  @media (max-width: 600px) {
+    svg {
+      width: 50px;
+      height:22px;
+    }
+  }
+  
 `;
 
 const IconContainer = styled.div`
@@ -476,7 +484,7 @@ const FeaturedImage = styled.img`
   width: 400px;
   height: auto;
   filter: brightness(1.2);
-  @media (max-width: 1000px) {
+  @media (max-width: 1300px) {
     width: 100%;
     align-self: center;
   }
@@ -485,7 +493,7 @@ const FeaturedImage = styled.img`
 `;
 
 const FeatureDescSvg = styled.svg`
-  @media (max-width: 1000px) {
+  @media (max-width: 1300px) {
     display: none;
   }
 `;
@@ -497,7 +505,7 @@ const FeaturedDescription = styled.div`
   line-height: 1.5;
   text-align: center;
   align-self: flex-start;
-  @media (max-width: 1000px) {
+  @media (max-width: 1300px) {
     margin-top: 0px;
     align-self: center;
   }
