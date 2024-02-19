@@ -12,10 +12,26 @@ import Contacts from "../components/contacts";
 import ScrollDownSVG from "../components/scrollDown";
 
 export default function Home() {
-  const nameRef = useRef(null);
   const birdRef = useRef(null);
   const [changes, setChanges] = useState(false);
   const [isOpenWing, setIsOpenWing] = useState(true);
+  const textRefs = useRef([]);
+  useGSAP(() => {
+    const textElements = textRefs.current;
+    if (!textElements.length) return;
+
+    const timeline = gsap.timeline();
+
+    textElements.forEach((textElement, index) => {
+      timeline.to(textElement, {
+        rotationX: 360,
+        duration: 0.4,
+        ease: "none",
+        delay: index * 0.001,
+        color: "#00ff08",
+      });
+    });
+  }, []);
   function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
@@ -62,7 +78,7 @@ export default function Home() {
     const dx = window.innerWidth * 0.2;
     const dy = window.innerHeight * 0.2;
     const birdElement = birdRef.current;
-    const nameElement = nameRef.current;
+    const nameElement = textRefs.current[11];
     const delta = calculateShift(birdElement, nameElement);
 
     const tweening = (dx, dy) => {
@@ -78,7 +94,7 @@ export default function Home() {
     };
 
     // console.log("Chnages: ", delta, changes);
-    if (changes === true)
+    if (changes === true){
       gsap.to(birdElement, {
         x: "+=" + delta.x,
         y: "+=" + delta.y,
@@ -86,6 +102,24 @@ export default function Home() {
         duration: 3,
         ease: "power1.inOut",
       });
+      gsap.to(nameElement, {
+        duration: 0.05,
+        x: "-=2",
+        rotation: 2,
+        transformOrigin: "center center", // Set the transform origin to center vertically
+        repeat: 10,
+        yoyo: true,
+        ease: "power1.inOut",
+        onComplete: () => {
+          gsap.to(nameElement, {
+            duration: 0.2,
+            x: 0,
+            rotation: 0,
+            ease: "power1.inOut",
+          });
+        },
+      });
+    }
     else tweening(dx, dy);
   }, [changes]);
 
@@ -180,7 +214,7 @@ export default function Home() {
       </RightLinks>
       <LeftLinks>
         <IconContainer>
-          <a href="http://">
+          <a href="http://github.com/nightfury1720">
             <svg
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
@@ -198,7 +232,7 @@ export default function Home() {
           </a>
         </IconContainer>
         <IconContainer>
-          <a href="http://">
+          <a href="https://twitter.com/SurajDwive29507">
             <svg
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
@@ -216,7 +250,7 @@ export default function Home() {
           </a>
         </IconContainer>
         <IconContainer>
-          <a href="http://">
+          <a href="https://www.linkedin.com/in/nightfury1720/">
             <svg
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
@@ -235,7 +269,7 @@ export default function Home() {
           </a>
         </IconContainer>
         <IconContainer>
-          <a href="http://">
+          <a href="https://www.codechef.com/users/nightifury1720">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="white"
@@ -248,7 +282,7 @@ export default function Home() {
           </a>
         </IconContainer>
         <IconContainer>
-          <a href="http://">
+          <a href="https://leetcode.com/nightfury1720/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="white"
@@ -293,7 +327,19 @@ export default function Home() {
         {" "}
         <Section id="intro">
           <HeroName onClick={handleOnClick}>
-            SURAJ Dwived<ArrivalPos ref={nameRef}>i</ArrivalPos>
+            <div ref={(el) => (textRefs.current[0] = el)}>S</div>
+            <div ref={(el) => (textRefs.current[1] = el)}>u</div>
+            <div ref={(el) => (textRefs.current[2] = el)}>r</div>
+            <div ref={(el) => (textRefs.current[3] = el)}>a</div>
+            <div ref={(el) => (textRefs.current[4] = el)}>j </div>
+            <div style={{ width: "20px" }} /> {/* Add a space here */}
+            <div ref={(el) => (textRefs.current[5] = el)}>D</div>
+            <div ref={(el) => (textRefs.current[6] = el)}>w</div>
+            <div ref={(el) => (textRefs.current[7] = el)}>i</div>
+            <div ref={(el) => (textRefs.current[8] = el)}>v</div>
+            <div ref={(el) => (textRefs.current[9] = el)}>e</div>
+            <div ref={(el) => (textRefs.current[10] = el)}>d</div>
+            <div ref={(el) => (textRefs.current[11] = el)}>i</div>
           </HeroName>
           <SubHeading>
             Software Engineer who loves to unravel.
@@ -394,14 +440,13 @@ const Bird = styled.div`
   z-index: 100;
   width: fit-content;
   height: fit-content;
-  
+
   @media (max-width: 600px) {
     svg {
       width: 50px;
-      height:22px;
+      height: 22px;
     }
   }
-  
 `;
 
 const IconContainer = styled.div`
@@ -565,7 +610,11 @@ const ExperienceWrapper = styled.div`
   }
 `;
 const HeroName = styled.div`
+  display: flex;
+  justify-content: center; /* Horizontally center align */
+  align-items: center; /* Vertically center align */
   width: 100%;
+  margin: 0px auto;
   margin-top: 20%;
   text-align: center;
   font-size: 100px;
