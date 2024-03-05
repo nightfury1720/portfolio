@@ -143,7 +143,6 @@ const Card = styled.div`
   justify-content: space-between;
   font-size: 16px;
   font-weight: 500;
-  width: 100%;
   height: 30px;
   background-color: #01a659;
   padding: 1em;
@@ -159,7 +158,6 @@ const CardDetails = styled.div`
   justify-content: space-between;
   font-size: 16px;
   background-color: #014107;
-  width: 100%;
   padding: 1em;
   margin-bottom: 1em;
   border-radius: 6px;
@@ -170,9 +168,6 @@ const CardDetails = styled.div`
     flex-direction: row-reverse;
   }
 
-  @media (max-width: 500px) {
-    width: 98%;
-  }
 `;
 
 const LeftContainer = styled.div`

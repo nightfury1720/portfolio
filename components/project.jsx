@@ -8,7 +8,7 @@ function Project({ data }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <ImageWrapper zoomed={hovered}>
+      <ImageWrapper>
         <Image src={data.imageLink} alt="Project Image" />
       </ImageWrapper>
       <DescriptionWrapper>

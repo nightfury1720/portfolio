@@ -6,12 +6,10 @@ const FiltersTab = ({ work }) => {
   const [selectedSkill, setSelectedSkill] = useState("All");
   const [skillsArray, setSkillsArray] = useState([
     "All",
-    "Javascript",
     "React",
-    "MongoDb",
-    "NodeJs",
     "WebSockets",
-    "WordPress"
+    "WordPress",
+    "Web3"
   ]);
 
   useEffect(() => {
@@ -46,7 +44,7 @@ const FiltersTab = ({ work }) => {
                 selected={selectedSkill === skill}
               >
                 {skill}
-                <sup>{skillProjectMap[skill]?.length}</sup>
+                <sup>{skillProjectMap[skill]?.length ?? 0}</sup>
               </FilterTypes>
             ))
           : null}

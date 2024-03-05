@@ -1,23 +1,37 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleNavbar = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  const closeNavbar = () => {
+    setIsExpanded(false);
+  };
+
   return (
     <NavContainer>
-      <Name>Suraj Dwivedi</Name>
-      <Menus>
-        <NavItem href="#intro">
+      <FlexContainer>
+        <Name>Suraj Dwivedi</Name>
+        <MenuToggle onClick={toggleNavbar}>☰</MenuToggle>
+      </FlexContainer>
+      <Menus isExpanded={isExpanded}>
+        <NavItem href="#intro" onClick={closeNavbar}>
           <Numbers>01.</Numbers> Home
         </NavItem>
-        <NavItem href="#skills">
+        <NavItem href="#skills" onClick={closeNavbar}>
           <Numbers>02.</Numbers> Skills
         </NavItem>
-        <NavItem href="#work">
+        <NavItem href="#work" onClick={closeNavbar}>
           <Numbers>03.</Numbers> Work
         </NavItem>
-        <NavItem href="#experience">
+        <NavItem href="#experience" onClick={closeNavbar}>
           <Numbers>04.</Numbers> Experience
         </NavItem>
-        <NavItem href="#contact">
+        <NavItem href="#contact" onClick={closeNavbar}>
           <Numbers>05.</Numbers> Contact
         </NavItem>
       </Menus>
@@ -25,35 +39,35 @@ const Navbar = () => {
   );
 };
 
-const Numbers = styled.div`
-  font-size: 12px;
-  padding-right:8px;
-  color: #39f039;
-`;
-const NavContainer = styled.div`
+const FlexContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 95%;
-  margin: 0px auto;
-  padding-top: 20px;
-  padding-left:50px;
-  padding-right: 50px;
-  padding-bottom: 20px;
-  z-index: 11;
-  top:0px;
-  background-color: rgba(10, 25, 47, 0.90);
-  position: fixed;
+  width: 100%;
 `;
 
-const Menus = styled.div`
+const Numbers = styled.div`
+  padding-right: 8px;
+  color: #39f039;
+`;
+
+const NavContainer = styled.div`
   display: flex;
-  font-weight: 400;
-  font-size: 12px;
-  color: #ffffff;
-  z-index: 1000;
-  /* margin: auto; */
-  @media (max-width: 700px) {
-    display: none; /* Hide the component when screen width is 600px or less */
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px 0px;
+  background-color: rgba(10, 25, 47, 0.90);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 11;
+
+  @media (max-width: 850px) {
+    flex-direction: column;
+    align-items: center; /* Center align on small screens */
+    padding: 20px;
   }
 `;
 
@@ -61,18 +75,52 @@ const Name = styled.div`
   font-weight: 700;
   font-size: 24px;
   color: #39f039;
-  z-index: 1000;
+`;
+
+const MenuToggle = styled.button`
+  display: none;
+
+  @media (max-width: 850px) {
+    display: flex;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+`;
+
+const Menus = styled.div`
+  display: flex;
+  font-weight: 400;
+  font-size: 12px;
+  color: #ffffff;
+
+  @media (max-width: 850px) {
+    flex-direction: column;
+    align-items: center; /* Center align on small screens */
+    width: 100%;
+    margin: 0px auto;
+    font-size: 24px;
+    display: ${({ isExpanded }) => (isExpanded ? "flex" : "none")};
+  }
 `;
 
 const NavItem = styled.a`
   display: flex;
   align-items: flex-end;
-  padding: 0px 15px 0px 15px;
+  padding: 0px 15px;
   text-decoration: none;
   color: inherit;
   transition: opacity 0.3s ease;
+
   &:hover {
-    opacity: 1; /* Restore opacity on hover */
+    opacity: 1;
+  }
+
+  @media (max-width: 850px) {
+    padding: 10px 0;
   }
 `;
 

@@ -62,8 +62,6 @@ export default function Home() {
     const currX = currRect.left + currRect.width / 2;
     const currY = currRect.top + currRect.height / 2;
 
-    const shiftX = targetX - currX;
-    const shiftY = targetY - currY;
     const delta = MotionPathPlugin.getRelativePosition(
       curr,
       target,
@@ -94,7 +92,7 @@ export default function Home() {
     };
 
     // console.log("Chnages: ", delta, changes);
-    if (changes === true){
+    if (changes === true) {
       gsap.to(birdElement, {
         x: "+=" + delta.x,
         y: "+=" + delta.y,
@@ -119,8 +117,7 @@ export default function Home() {
           });
         },
       });
-    }
-    else tweening(dx, dy);
+    } else tweening(dx, dy);
   }, [changes]);
 
   const handleOnClick = () => {
@@ -131,7 +128,7 @@ export default function Home() {
   };
   const work = {
     description:
-      "I'm proficient in Next, React, Node.js, and more. With a track record of delivering impactful projects, I bring boundless enthusiasm and a knack for problem-solving to every endeavor. Let's connect and create something extraordinary!",
+      "I love to build complex stuff that pushes me to learn new things. I have worked with React, Blockchain, Websockets, Elixir and more. Hare are some of my cool projects check them out",
     featuredWork: {
       name: "Chatty",
       imageLink: "/img/chatty.png",
@@ -620,7 +617,12 @@ const HeroName = styled.div`
   font-size: 100px;
   font-weight: 600;
   @media (max-width: 850px) {
+    flex-wrap: wrap;
     font-size: 60px;
+  }
+  @media (max-width: 500px) {
+    flex-wrap: wrap;
+    font-size: 40px;
   }
 `;
 const Heading = styled.div`
