@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { useState, useEffect } from "react";
+import styled from "styled-components";
 const Experience = ({ data }) => {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
@@ -71,7 +71,13 @@ const Experience = ({ data }) => {
               </NameContainer>
             </LinkWrapper>
 
-            <NameContainer>{data.description}</NameContainer>
+            <NameContainer>
+              <List>
+                {data.description.map((point, index) => (
+                  <ListItem key={index}>{point}</ListItem>
+                ))}
+              </List>
+            </NameContainer>
             <TechWrapper>
               {data.skills.map((skill) => (
                 <Tech key={skill}>{skill}</Tech>
@@ -83,6 +89,27 @@ const Experience = ({ data }) => {
     </>
   );
 };
+
+const List = styled.ul`
+  list-style-type: none;
+  padding: 0;
+`;
+
+const ListItem = styled.li`
+  font-size: 1em;
+  color: #ffffff;
+  margin: 10px 0;
+  position: relative;
+  padding-left: 20px;
+
+  &::before {
+    content: "•";
+    color: #0070f3;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+`;
 
 const LinkWrapper = styled.div`
   display: flex;
@@ -167,7 +194,6 @@ const CardDetails = styled.div`
   @media (min-width: 900px) {
     flex-direction: row-reverse;
   }
-
 `;
 
 const LeftContainer = styled.div`

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Heading } from "../pages";
 function Contacts() {
   return (
     <>
@@ -20,7 +21,7 @@ function Contacts() {
         </Button>
       </ContactsWrapper>
       <Footer>
-        <a href="https://github.com/nightfury1720">
+        <a href="https://github.com/nightfury1720/portfolio">
           Designed and Built by Suraj Dwivedi
         </a>
       </Footer>
@@ -53,14 +54,7 @@ const Button = styled.div`
 const Description = styled.div`
   font-size: 16px;
 `;
-const Heading = styled.div`
-  text-align: center;
-  font-size: 50px;
-  font-weight: 600;
-  @media (max-width: 650px) {
-    font-size: 35px;
-  }
-`;
+
 
 const Footer = styled.div`
   max-width: 400px;

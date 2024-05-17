@@ -79,7 +79,7 @@ const SkillTitleWrapper = styled.div`
 `;
 const ResponsiveBlock = styled.div`
   flex: 1; /* Make blocks stretch to fill the available space */
-  border: 2.5px solid #abb2b9;
+  border: 1px solid #00ff08;;
   box-sizing: border-box;
   padding: 0.5em 0.5em 0.5em;
   width: 33%;

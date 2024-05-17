@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { useState } from "react";
-
+import { useRouter } from "next/router";
 const Navbar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
-
+  const router = useRouter();
   const toggleNavbar = () => {
     setIsExpanded(!isExpanded);
   };
@@ -12,10 +12,18 @@ const Navbar = () => {
     setIsExpanded(false);
   };
 
+  const closeNavbarRedirect = (pageLink) => {
+    setIsExpanded(false);
+    router.push(pageLink);
+  };
+
+  const redirectHomePage = () => {
+    router.push("/");
+  };
   return (
     <NavContainer>
       <FlexContainer>
-        <Name>Suraj Dwivedi</Name>
+        <Name onClick={redirectHomePage}>Suraj Dwivedi</Name>
         <MenuToggle onClick={toggleNavbar}>☰</MenuToggle>
       </FlexContainer>
       <Menus isExpanded={isExpanded}>
@@ -34,6 +42,9 @@ const Navbar = () => {
         <NavItem href="#contact" onClick={closeNavbar}>
           <Numbers>05.</Numbers> Contact
         </NavItem>
+        <BlogLink onClick={() => closeNavbarRedirect("/blogs")}>
+          <Numbers>06.</Numbers> Blogs
+        </BlogLink>
       </Menus>
     </NavContainer>
   );
@@ -57,7 +68,7 @@ const NavContainer = styled.div`
   width: 90%;
   margin: 0 auto;
   padding: 20px 0px;
-  background-color: rgba(10, 25, 47, 0.90);
+  background-color: rgba(10, 25, 47, 0.9);
   position: fixed;
   top: 0;
   left: 0;
@@ -75,6 +86,10 @@ const Name = styled.div`
   font-weight: 700;
   font-size: 24px;
   color: #39f039;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
 `;
 
 const MenuToggle = styled.button`
@@ -117,6 +132,24 @@ const NavItem = styled.a`
 
   &:hover {
     opacity: 1;
+  }
+
+  @media (max-width: 850px) {
+    padding: 10px 0;
+  }
+`;
+
+const BlogLink = styled.div`
+  display: flex;
+  align-items: flex-end;
+  padding: 0px 15px;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
   }
 
   @media (max-width: 850px) {

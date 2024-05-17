@@ -71,7 +71,7 @@ const FilterTypes = styled.div`
   display: flex;
   text-align: center;
   cursor: pointer;
-  color: ${(props) => (props.selected ? "#01a659" : "#8B8D8E")};
+  color: ${(props) => (props.selected ? "#00ff08" : "#8B8D8E")};
   &:hover {
     color: #00ff08;
   }
