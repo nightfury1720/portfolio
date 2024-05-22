@@ -9,7 +9,8 @@ const FiltersTab = ({ work }) => {
     "React",
     "WebSockets",
     "WordPress",
-    "Web3"
+    "Web3",
+    "Next"
   ]);
 
   useEffect(() => {

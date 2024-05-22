@@ -15,7 +15,10 @@ function Project({ data }) {
         <ProjectDescription>{data.name}</ProjectDescription>
         {hovered ? (
           <ProjectButton>
-            <a href={data.gitLink}>Show Project</a>
+            <a href={data.gitLink}>Project Code</a>
+            {data?.demoLink && (
+              <a href={data.demoLink}>Demo Link</a>
+            )}
           </ProjectButton>
         ) : (
           <ProjectDescription>{data.shortdesc}</ProjectDescription>
@@ -51,9 +54,9 @@ const Image = styled.img`
   left: 0;
   width: auto;
   height: 100%;
-  filter:brightness(0.6);
+  filter: brightness(1);
   &:hover {
-  filter:brightness(1);
+    filter: brightness(0.5);
   }
 `;
 
@@ -71,15 +74,17 @@ const ProjectDescription = styled.div`
 `;
 
 const ProjectButton = styled.span`
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
   border-radius: 8px;
   a {
-    color: #01a659;
+    color: #00ff08;
     text-decoration: none;
     &:hover {
       color: #00ff08;
     }
   }
 `;
+
 
 export default Project;

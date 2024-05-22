@@ -142,6 +142,16 @@ export default function Home() {
     },
     projects: [
       {
+        name: "Builder",
+        imageLink: "/img/builderProd.png",
+        demoLink: "https://builderprod.vercel.app/",
+        gitLink: "https://github.com/nightfury1720/builder",
+        shortdesc: "Website Builder & Agency Management",
+        description:
+          "It Provides agency to manage their task-kanban board, team members, access-control and a Website Builder where you can go and build your own Drag and Drop website",
+        skills: ["Next",  "Javascript", "Postgres", "NodeJs", "Stripe"],
+      },
+      {
         name: "Chatty",
         imageLink: "/img/chatty.png",
         gitLink: "https://github.com/nightfury1720/chatty",
@@ -159,15 +169,15 @@ export default function Home() {
           " A full-stack social media app for sharing life events with user authorization, allowing likes, reactions and comments.",
         skills: ["React", "Javascript", "MongoDb", "NodeJs"],
       },
-      {
-        name: "URL Shortener",
-        imageLink: "/img/urlShortener.png",
-        gitLink: "https://github.com/nightfury1720/Url-Shortener",
-        shortdesc: "Shortening URL",
-        description:
-          "Developed a URL shortener app with an integrated rate limiter for enhanced performance and user control.",
-        skills: ["React", "Javascript", "MongoDb", "NodeJs"],
-      },
+      // {
+      //   name: "URL Shortener",
+      //   imageLink: "/img/urlShortener.png",
+      //   gitLink: "https://github.com/nightfury1720/Url-Shortener",
+      //   shortdesc: "Shortening URL",
+      //   description:
+      //     "Developed a URL shortener app with an integrated rate limiter for enhanced performance and user control.",
+      //   skills: ["React", "Javascript", "MongoDb", "NodeJs"],
+      // },
       {
         name: "Going Nuts",
         imageLink: "/img/goingNuts.png",
