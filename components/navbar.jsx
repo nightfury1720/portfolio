@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { useRouter } from "next/router";
+
+import Header from "./header"
 const Navbar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const router = useRouter();
@@ -21,6 +23,7 @@ const Navbar = () => {
     router.push("/");
   };
   return (
+    <>
     <NavContainer>
       <FlexContainer>
         <Name onClick={redirectHomePage}>Suraj Dwivedi</Name>
@@ -47,6 +50,7 @@ const Navbar = () => {
         </BlogLink>
       </Menus>
     </NavContainer>
+    </>
   );
 };
 
@@ -68,12 +72,24 @@ const NavContainer = styled.div`
   width: 90%;
   margin: 0 auto;
   padding: 20px 0px;
-  background-color: rgba(10, 25, 47, 0.9);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 11;
+
+  /* Use a pseudo-element for the background with opacity */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #0d1a2f, #40035a);
+    opacity: 0.75; /* Apply opacity to the background */
+    z-index: -1; /* Ensure the pseudo-element is behind the content */
+  }
 
   @media (max-width: 850px) {
     flex-direction: column;
@@ -81,6 +97,7 @@ const NavContainer = styled.div`
     padding: 20px;
   }
 `;
+
 
 const Name = styled.div`
   font-weight: 700;

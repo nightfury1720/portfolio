@@ -272,7 +272,7 @@ export default function Home() {
             <div ref={(el) => (textRefs.current[11] = el)}>i</div>
           </HeroName>
           <SubHeading>
-            Software Engineer who loves to unravel.
+            I am a Fullstack developer(Back-end Heavy), Currently learning go and trying to build up some open-source contributions in there.
             <br />
             <ScrollDownSVG />
           </SubHeading>
@@ -504,9 +504,10 @@ export const Heading = styled.div`
 const SubHeading = styled.div`
   display: block;
   text-align: center;
+  width: 60%; /* Adjust this width as needed */
   font-size: 24px;
   font-weight: 400;
-  margin-bottom: 15%;
+  margin: 0% auto 15%; /* Center align horizontally */
 `;
 export const Section = styled.section`
   width: 100%;
